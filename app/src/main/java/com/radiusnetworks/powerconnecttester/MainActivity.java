@@ -23,6 +23,7 @@ public class MainActivity extends ActionBarActivity {
         super.onResume();
         TextView textView = (TextView) findViewById(R.id.events);
         Intent intent = getIntent();
+        setIntent(null);
         String action = null;
         Log.d(TAG, "Got intent: " + intent);
         if (intent != null && intent.getExtras() != null) {
