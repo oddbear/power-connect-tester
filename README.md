@@ -4,12 +4,13 @@ This app is designed to detect the responsiveness of different Android device mo
 
 ### Instructions
 
-1. Run this app on your phone.  
-2. Connect the power, and disconnect the power.  
-3. Verify you see the events logged.
-4. Force kill the app from the task switcher
-5. Connect the power
-6. Verify the app auto-launches and you see a power connection event
+1. Install this app from source or from binary here: https://github.com/davidgyoung/power-connect-tester/releases/tag/untagged-33920cb724d01cdb7115
+2. Run this app on your phone.  
+3. Connect the power, and disconnect the power.  
+4. Verify you see the events logged.
+5. Force kill the app from the task switcher
+6. Connect the power
+7. Verify the app auto-launches and you see a power connection event
 
 If you do not see any of the above, please open an issue
 
