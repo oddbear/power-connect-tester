@@ -23,3 +23,4 @@ Model number: Nexus 5
 Android version: 5.0
 Build number: LPX13D
 
+<img src='http://i.imgur.com/fYpibxM.png?1'/>
