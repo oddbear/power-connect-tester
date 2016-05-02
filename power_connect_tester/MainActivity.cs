@@ -22,44 +22,48 @@ namespace power_connect_tester
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activity_main);
+            base.SetContentView(Resource.Layout.activity_main);
         }
 
         protected override void OnResume()
         {
             base.OnResume();
-            TextView textView = (TextView)FindViewById(Resource.Id.events);
-            Intent intent = this.Intent;
-            this.Intent = null;
+
+            var textView = (TextView)FindViewById(Resource.Id.events);
+
+            var intent = base.Intent;
+            base.Intent = null;
+
             string action = null;
+
             Log.Debug(TAG, "Got intent: " + intent);
             if (intent != null && intent.Extras != null)
             {
                 action = intent.GetStringExtra("action");
             }
+
             if (action == null)
             {
-                textView.SetText(textView.Text + "\nActivity Resumed", TextView.BufferType.Normal); //TextView.BufferType correct?
+                textView.Text += "\nActivity Resumed";
             }
             else
             {
-                textView.SetText(textView.Text + "\nReceived action " + action, TextView.BufferType.Normal); //TextView.BufferType correct?
+                textView.Text += "\nReceived action " + action;
             }
-
         }
 
         protected override void OnNewIntent(Intent intent)
         {
             if (intent != null)
             {
-                Intent = intent;
+                base.Intent = intent;
             }
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             // Inflate the menu; this adds items to the action bar if it is present.
-            this.MenuInflater.Inflate(Resource.Menu.menu_main, menu);
+            base.MenuInflater.Inflate(Resource.Menu.menu_main, menu);
             return true;
         }
 
@@ -68,13 +72,11 @@ namespace power_connect_tester
             // Handle action bar item clicks here. The action bar will
             // automatically handle clicks on the Home/Up button, so long
             // as you specify a parent activity in AndroidManifest.xml.
-            int id = item.ItemId;
+            var id = item.ItemId;
 
             //noinspection SimplifiableIfStatement
             if (id == Resource.String.action_settings)
-            {
                 return true;
-            }
 
             return base.OnOptionsItemSelected(item);
         }

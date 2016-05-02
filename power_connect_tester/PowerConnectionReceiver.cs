@@ -17,9 +17,9 @@ namespace power_connect_tester
 
         public override void OnReceive(Context context, Intent intent)
         {
-            String action = intent.Action;
+            var action = intent.Action;
 
-            String actionName = null;
+            string actionName = null;
 
             if (action.Equals(Intent.ActionPowerConnected))
             {
@@ -38,11 +38,11 @@ namespace power_connect_tester
                 actionName = "OTHER: " + action;
             }
 
-            Intent newIntent = new Intent(context, typeof(MainActivity));
+            var newIntent = new Intent(context, typeof(MainActivity));
             newIntent.PutExtra("action", actionName);
             newIntent.SetFlags(ActivityFlags.NewTask);
 
-            Log.Debug(TAG, "Sending intent: "+ newIntent + " for broadcast intent: " + intent);
+            Log.Debug(TAG, "Sending intent: " + newIntent + " for broadcast intent: " + intent);
             context.ApplicationContext.StartActivity(newIntent);
         }
     }

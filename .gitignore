@@ -6,3 +6,4 @@
 /build
 power_connect_tester/obj
 power_connect_tester/bin
+*.userprefs
